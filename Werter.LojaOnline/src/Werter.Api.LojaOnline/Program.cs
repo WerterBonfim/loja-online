@@ -1,24 +1,34 @@
+using Werter.Api.LojaOnline.Configuracoes;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+
+builder.Services.AdicionarConfiguracaoDoExceptionLess(builder.Configuration);
+builder.Services.AdicionarConfiguracoesDoSwagger();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+
+
+// Pipeline
 if (app.Environment.IsDevelopment())
 {
+    
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
+
+//Swagger
+app.UseAsConfiguracoesDoSwagger();
+app.UsarExceptionLess();
 
 app.MapControllers();
 

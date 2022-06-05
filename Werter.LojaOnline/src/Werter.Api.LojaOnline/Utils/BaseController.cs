@@ -2,10 +2,12 @@
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Werter.Api.LojaOnline.Negocio.Exceptions;
 
 namespace Werter.Api.LojaOnline.Utils
 {
     [ApiController]
+    //[ServiceFilter(typeof(ValidacaoDoModelAsync))]
     public class BaseController : Controller
     {
         private readonly ICollection<string> _erros = new List<string>();
@@ -19,10 +21,13 @@ namespace Werter.Api.LojaOnline.Utils
                 .SetMessage(mensagem)
                 .Submit();
 
+            if (exception is LojaOnlineException)
+                return StatusCode(StatusCodes.Status500InternalServerError);
+
             return RespostaPersonalizada();
         }
 
-        protected ActionResult RespostaPersonalizada(object resultado = null)
+        protected ActionResult RespostaPersonalizada(object? resultado = null)
         {
             if (OperacaoValida())
                 return Ok(resultado);
@@ -35,10 +40,11 @@ namespace Werter.Api.LojaOnline.Utils
             return BadRequest(new ValidationProblemDetails(erros));
         }
 
-        protected IActionResult RespostaPersonalizada(ValidationResult validationResult)
+        protected IActionResult RespostaPersonalizada(ValidationResult? validationResult)
         {
-            foreach (var error in validationResult.Errors)
-                AdicionarErro(error.ErrorMessage);
+            if (validationResult != null)                
+                foreach (var error in validationResult.Errors)
+                    AdicionarErro(error.ErrorMessage);
 
             return RespostaPersonalizada();
         }

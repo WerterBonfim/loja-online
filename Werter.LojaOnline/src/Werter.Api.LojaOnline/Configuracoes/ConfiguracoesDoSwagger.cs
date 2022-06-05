@@ -1,19 +1,26 @@
 ﻿using Microsoft.OpenApi.Models;
 
+using Werter.Api.LojaOnline.Utils;
+
 namespace Werter.Api.LojaOnline.Configuracoes
 {
     public static class ConfiguracoesDoSwagger
     {
+        private const string URL_OPEN_SOURCE = "https://opensource.org/license";
+
         public static void AdicionarConfiguracoesDoSwagger(this IServiceCollection services)
         {
-            services.AddSwaggerGen(c =>
+            _ = services.AddSwaggerGen(c =>
             {
+
+                c.SchemaFilter<SwaggerSkipPropertyFilter>();
+
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Title = "Werter - Loja Online API",
                     Description = "Aplicação de exemplo para estudos de APIs e CRUD",
                     Contact = new OpenApiContact { Name = "Werter Bonfim", Email = "werter@hotmail.com.br" },
-                    License = new OpenApiLicense { Name = "MIT", Url = new Uri("https://opensource.org/license") }
+                    License = new OpenApiLicense { Name = "MIT", Url = new Uri(URL_OPEN_SOURCE) }
                 });
 
 

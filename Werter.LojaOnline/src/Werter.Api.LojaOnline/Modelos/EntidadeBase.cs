@@ -3,10 +3,10 @@
     public abstract class EntidadeBase 
     {
         public Guid Id { get; set; }
-        public DateTime DataHoraCadastro { get; set; }
-        public DateTime DataHoraAlterado { get; set; }
+        public DateTime DataHoraCadastro { get; set; } = DateTime.Now;
+        public DateTime? DataHoraAlterado { get; set; }
 
-        public EntidadeBase()
+        protected EntidadeBase()
         {
             Id = Guid.NewGuid();
         }

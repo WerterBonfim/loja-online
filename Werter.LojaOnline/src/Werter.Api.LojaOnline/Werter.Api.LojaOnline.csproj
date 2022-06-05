@@ -5,11 +5,17 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>47dbfbb2-25df-4b12-ae81-affb6173334b</UserSecretsId>
+    <CodeAnalysisRuleSet>..\..\.sonarlint\teste-sonar-wertercsharp.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="..\..\.sonarlint\teste-sonar-werter\CSharp\SonarLint.xml" Link="SonarLint.xml" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Exceptionless.AspNetCore" Version="4.8.0" />
     <PackageReference Include="FluentValidation" Version="11.0.2" />
+    <PackageReference Include="Mapster" Version="7.3.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="6.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.5">

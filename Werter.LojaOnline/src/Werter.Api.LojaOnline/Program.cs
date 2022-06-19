@@ -7,8 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services
-    .AddControllers(configure =>
-        configure.Filters.Add(new FiltroDeExceptionInterceptorAttribute()))
+    .AddControllers()
     .AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
 builder.Services.AddEndpointsApiExplorer();

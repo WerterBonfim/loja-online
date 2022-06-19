@@ -7,7 +7,7 @@ using Werter.Api.LojaOnline.Negocio.Exceptions;
 namespace Werter.Api.LojaOnline.Utils
 {
     [ApiController]
-    //[ServiceFilter(typeof(ValidacaoDoModelAsync))]
+    [ServiceFilter(typeof(FiltroDeExceptionInterceptorAttribute))]
     public class BaseController : Controller
     {
         private readonly ICollection<string> _erros = new List<string>();
@@ -15,15 +15,6 @@ namespace Werter.Api.LojaOnline.Utils
         protected IActionResult RespostaPersonalizada(Exception exception, string mensagem)
         {
             AdicionarErro(mensagem);
-
-            exception
-                .ToExceptionless()
-                .SetMessage(mensagem)
-                .Submit();
-
-            if (exception is LojaOnlineException)
-                return StatusCode(StatusCodes.Status500InternalServerError);
-
             return RespostaPersonalizada();
         }
 

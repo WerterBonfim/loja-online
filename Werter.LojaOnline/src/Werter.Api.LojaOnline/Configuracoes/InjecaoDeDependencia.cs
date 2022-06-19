@@ -11,19 +11,19 @@ namespace Werter.Api.LojaOnline.Configuracoes
         {
 
             services.AddScoped<ValidacaoDoModelAsync>();
-
+    
             services.AddDbContext<LojaOnlineContext>(options =>
                 options
                 .UseSqlServer(configuration.GetConnectionString("DefaultConnection"))
+                .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTrackingWithIdentityResolution)
                 .EnableSensitiveDataLogging()
                 .LogTo(Console.Write, LogLevel.Information)
-                .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTrackingWithIdentityResolution)
             );
 
 
+            services.AddScoped<FiltroDeExceptionInterceptorAttribute>(x 
+                => new FiltroDeExceptionInterceptorAttribute(x.GetService<ILogger>()!));
             services.AddScoped<IProdutoRepositorio, ProdutosRepositorio>();
-
-
             services.AddScoped<IServicoProdutos, ServicoParaLidarComProdutos>();
 
         }

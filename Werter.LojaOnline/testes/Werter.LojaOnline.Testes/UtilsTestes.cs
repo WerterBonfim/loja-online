@@ -1,6 +1,6 @@
-using Werter.Api.LojaOnline.Modelos;
 using Werter.Api.LojaOnline.Negocio.Requisitos;
 using Werter.Api.LojaOnline.Utils;
+using Werter.LojaOnline.Dominio.Modelos;
 
 namespace Werter.LojaOnline.Testes
 {

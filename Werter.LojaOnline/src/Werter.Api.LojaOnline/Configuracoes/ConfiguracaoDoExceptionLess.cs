@@ -8,7 +8,7 @@ namespace Werter.Api.LojaOnline.Configuracoes
         {
             services.AddExceptionless(x =>
             {
-                x.ApiKey = "5Nf6oPNMW3XQJFO0Hl9wFAFXW4e2Ge6DAfmFSEDf";
+                x.ApiKey = "YevJIwCdeSKGFPe9tBvFnLN9Juy5W5Tmcau8JkXf";
                 x.ServerUrl = "http://localhost:5000";
             });
         }

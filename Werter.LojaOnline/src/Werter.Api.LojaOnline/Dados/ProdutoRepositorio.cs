@@ -1,8 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Werter.Api.LojaOnline.Dados.Repositorio;
-using Werter.Api.LojaOnline.Modelos;
-using Werter.Api.LojaOnline.Utils;
+using Werter.LojaOnline.Dominio.Modelos;
 
 namespace Werter.Api.LojaOnline.Dados
 {

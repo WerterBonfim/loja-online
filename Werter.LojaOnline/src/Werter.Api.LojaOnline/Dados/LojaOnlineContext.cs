@@ -1,8 +1,8 @@
 ﻿using FluentValidation.Results;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
-using Werter.Api.LojaOnline.Modelos;
 using Werter.Api.LojaOnline.Utils;
+using Werter.LojaOnline.Dominio.Modelos;
 
 namespace Werter.Api.LojaOnline.Dados
 {

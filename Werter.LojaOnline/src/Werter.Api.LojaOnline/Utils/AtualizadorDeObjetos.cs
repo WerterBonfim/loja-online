@@ -1,5 +1,5 @@
 ﻿using System.Reflection;
-using Werter.Api.LojaOnline.Modelos;
+
 using Werter.Api.LojaOnline.Negocio.Exceptions;
 using Werter.Api.LojaOnline.Negocio.Requisitos;
 

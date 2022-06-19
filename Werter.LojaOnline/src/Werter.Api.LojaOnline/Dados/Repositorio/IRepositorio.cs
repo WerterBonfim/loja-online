@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Query;
 using System.Linq.Expressions;
-using Werter.Api.LojaOnline.Modelos;
 using Werter.Api.LojaOnline.Utils;
+using Werter.LojaOnline.Compartilhado.DomainObjects;
 
 namespace Werter.Api.LojaOnline.Dados.Repositorio
 {

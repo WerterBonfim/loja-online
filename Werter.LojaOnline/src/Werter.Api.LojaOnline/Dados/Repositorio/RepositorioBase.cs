@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
 using System.Linq.Expressions;
-using Werter.Api.LojaOnline.Modelos;
 using Werter.Api.LojaOnline.Negocio.Exceptions;
 using Werter.Api.LojaOnline.Utils;
+using Werter.LojaOnline.Compartilhado.DomainObjects;
 
 namespace Werter.Api.LojaOnline.Dados.Repositorio
 {
@@ -39,7 +39,7 @@ namespace Werter.Api.LojaOnline.Dados.Repositorio
 
             if (include != null) query = include(query);
 
-            query = query.Take(take).Skip(skip);
+            query = query.Skip(skip).Take(take);
 
             return await ExecutarComando(
                 async () => await query.ToListAsync(cancellation),

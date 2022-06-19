@@ -3,9 +3,10 @@ using FluentValidation.Results;
 
 using Werter.Api.LojaOnline.Dados;
 using Werter.Api.LojaOnline.Negocio.Requisitos;
-using Werter.Api.LojaOnline.Modelos;
+
 using System.Diagnostics;
 using Werter.Api.LojaOnline.Utils;
+using Werter.LojaOnline.Dominio.Modelos;
 
 namespace Werter.Api.LojaOnline.Negocio.Servicos.Produtos
 {

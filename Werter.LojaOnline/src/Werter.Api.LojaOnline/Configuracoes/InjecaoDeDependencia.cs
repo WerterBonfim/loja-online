@@ -5,7 +5,7 @@ using Werter.Api.LojaOnline.Utils;
 
 namespace Werter.Api.LojaOnline.Configuracoes
 {
-    public static class ConfiguracaoDaInjecaoDeDependencia
+    public static class ConfiguracaoDaparametroscaoDeDependencia
     {
         public static void AdicionarInjecaoDeDependencia(this IServiceCollection services, IConfiguration configuration)
         {

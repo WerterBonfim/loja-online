@@ -43,6 +43,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Werter.LojaOnline.Dominio\Werter.LojaOnline.Dominio.csproj" />
+    <ProjectReference Include="..\Werter.LojaOnline.Dominio\Werter.LojaOnline.Dominio.csproj" />
   </ItemGroup>
 
 </Project>
